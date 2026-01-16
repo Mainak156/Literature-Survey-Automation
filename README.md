@@ -8,13 +8,13 @@ An AI-powered literature survey automation tool that accepts research paper DOIs
 
 ## 🚀 Key Features
 
-- 📌 DOI-based paper input
-- 📚 Metadata extraction via CrossRef
-- 🧠 Abstract, methods, datasets, and TLDR via Semantic Scholar
-- 📄 Full PDF download and analysis (if open access)
-- ✂️ Section-aware text extraction (identifies Methods, Results, Datasets, etc.)
-- 🤖 AI-powered analysis using Groq (LLaMA 3.1)
-- 📊 Automatic Excel literature review generation
+- 📌 DOI-based paper input  
+- 📚 Metadata extraction via CrossRef  
+- 🧠 Abstract, methods, datasets, and TLDR via Semantic Scholar  
+- 📄 Full PDF download and analysis (if open access)  
+- ✂️ Section-aware text extraction (identifies Methods, Results, Datasets, etc.)  
+- 🤖 AI-powered analysis using Groq (LLaMA 3.1)  
+- 📊 Automatic Excel literature review generation  
 - 🌐 Interactive Streamlit UI with download-ready output
 
 ---
@@ -23,14 +23,14 @@ An AI-powered literature survey automation tool that accepts research paper DOIs
 
 The generated Excel file contains the following columns:
 
-- Serial No.
-- Title
-- Author & Year
-- DOI
-- Problem Addressed
-- Method Used
-- Dataset
-- Key Findings
+- Serial No.  
+- Title  
+- Author & Year  
+- DOI  
+- Problem Addressed  
+- Method Used  
+- Dataset  
+- Key Findings  
 - Limitations
 
 ---
@@ -57,8 +57,10 @@ Streamlit UI
 
 ## 📁 Project Structure
 
+The project tree is shown below in a straight (vertical) layout for clarity:
+
+```text
 Literature-Survey-Automation/
-│
 ├── app.py                     # Streamlit application
 ├── requirements.txt
 ├── input/
@@ -75,6 +77,7 @@ Literature-Survey-Automation/
 │   └── excel_writer.py
 ├── .gitignore
 └── README.md
+```
 
 ---
 
@@ -131,53 +134,53 @@ The app will be available at: http://localhost:8501
 
 ## 🌐 Deployment (Streamlit Community Cloud)
 
-1. Push the repository to GitHub
-2. Visit https://share.streamlit.io
-3. Click "New App"
+1. Push the repository to GitHub  
+2. Visit https://share.streamlit.io  
+3. Click "New App"  
 4. Select:
    - Repository: `Literature-Survey-Automation`
    - Branch: `main`
    - Main file: `app.py`
-5. Set Python version = 3.10
-6. Add `GROQ_API_KEY` in Secrets
+5. Set Python version = 3.10  
+6. Add `GROQ_API_KEY` in Secrets  
 7. Click Deploy
 
 ---
 
 ## 🧪 Ethical Design Principles
 
-- Avoid hallucination: do not invent missing details.
-- Fields are filled only if explicitly available from sources.
-- Missing or unavailable data is represented as `N/A`.
-- Review and survey papers are treated appropriately (dataset/limitations might be N/A).
+- Avoid hallucination: do not invent missing details.  
+- Fields are filled only if explicitly available from sources.  
+- Missing or unavailable data is represented as `N/A`.  
+- Review and survey papers are treated appropriately (dataset/limitations might be `N/A`).  
 - Section-aware analysis improves transparency and traceability of extracted claims.
 
 ---
 
 ## ⚠️ Known Limitations
 
-- Closed-access PDFs cannot be parsed or analyzed (only open-access PDFs are downloaded/analyzed).
-- Some papers use non-standard section headings; section-aware extraction may miss content.
-- Dataset and limitations fields may remain `N/A` for review/survey/editorial papers — this is expected and academically correct.
+- Closed-access PDFs cannot be parsed or analyzed (only open-access PDFs are downloaded/analyzed).  
+- Some papers use non-standard section headings; section-aware extraction may miss content.  
+- Dataset and limitations fields may remain `N/A` for review/survey/editorial papers — this is expected and academically correct.  
 - Quality of LLM analysis depends on the Groq model and the quality/availability of extracted text.
 
 ---
 
 ## 🎓 Use Cases
 
-- Systematic Literature Reviews (SLR)
-- Academic projects (M.Tech / MS / PhD)
-- Conference or viva demonstrations
-- Research automation workflows
+- Systematic Literature Reviews (SLR)  
+- Academic projects (M.Tech / MS / PhD)  
+- Conference or viva demonstrations  
+- Research automation workflows  
 - Rapid survey creation for proposals and related-work sections
 
 ---
 
 ## 🔬 Example Workflow
 
-1. Add DOIs (one per line) to `input/dois.txt` or paste into the Streamlit input.
-2. Run the app and start processing.
-3. Let the pipeline fetch metadata, pull abstracts and methods, download PDFs (if available), extract sectioned text, and run LLM analysis.
+1. Add DOIs (one per line) to `input/dois.txt` or paste into the Streamlit input.  
+2. Run the app and start processing.  
+3. Let the pipeline fetch metadata, pull abstracts and methods, download PDFs (if available), extract sectioned text, and run LLM analysis.  
 4. Download the generated `literature_review.xlsx` from the UI.
 
 ---
@@ -200,13 +203,13 @@ This project is released under the MIT License. See the LICENSE file for details
 Contributions, issues, suggestions, and stars are welcome. If you find the project useful, please consider starring the repository.
 
 If you want to contribute:
-- Open an issue to discuss major changes
+- Open an issue to discuss major changes  
 - Send a PR with a clear description and tests where appropriate
 
 ---
 
 ## 🙏 Acknowledgements
 
-- CrossRef and Semantic Scholar for metadata and abstract/method retrieval
-- Groq LLM (LLaMA 3.1) for AI-driven analysis
+- CrossRef and Semantic Scholar for metadata and abstract/method retrieval  
+- Groq LLM (LLaMA 3.1) for AI-driven analysis  
 - Streamlit for powering the interactive UI
