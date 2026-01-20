@@ -24,14 +24,10 @@ An AI-powered literature survey automation tool that accepts research paper DOIs
 The generated Excel file contains the following columns:
 
 - Serial No.  
-- Title  
-- Author & Year  
-- DOI  
-- Problem Addressed  
-- Method Used  
-- Dataset  
-- Key Findings  
-- Limitations
+- Title (Author & Year)
+- Methodology  
+- Identification of gaps and limitations
+- Results
 
 ---
 
@@ -149,39 +145,42 @@ The app will be available at: http://localhost:8501
 
 ## 🧪 Ethical Design Principles
 
-- Avoid hallucination: do not invent missing details.  
-- Fields are filled only if explicitly available from sources.  
-- Missing or unavailable data is represented as `N/A`.  
-- Review and survey papers are treated appropriately (dataset/limitations might be `N/A`).  
-- Section-aware analysis improves transparency and traceability of extracted claims.
+- No hallucination of missing information
+- No forced completeness
+- If content is not explicitly stated, it is marked as “Not discussed in this paper”
+- Narrative academic synthesis instead of rigid field extraction
+- Designed to be viva-safe and reviewer-safe
 
 ---
 
 ## ⚠️ Known Limitations
 
-- Closed-access PDFs cannot be parsed or analyzed (only open-access PDFs are downloaded/analyzed).  
-- Some papers use non-standard section headings; section-aware extraction may miss content.  
-- Dataset and limitations fields may remain `N/A` for review/survey/editorial papers — this is expected and academically correct.  
-- Quality of LLM analysis depends on the Groq model and the quality/availability of extracted text.
+- Closed-access PDFs cannot be downloaded or analyzed
+- Some papers use non-standard section headings, which may reduce section detection accuracy
+- Quality of analysis depends on the clarity and availability of source text
+- Results and metrics may not be reported in conceptual or survey papers
+These limitations are academically expected, not system errors.
 
 ---
 
 ## 🎓 Use Cases
 
-- Systematic Literature Reviews (SLR)  
-- Academic projects (M.Tech / MS / PhD)  
-- Conference or viva demonstrations  
-- Research automation workflows  
-- Rapid survey creation for proposals and related-work sections
+- College literature surveys
+- Minor / Major academic projects
+- M.Tech / MS / PhD research
+- Conference and viva demonstrations
+- Research automation workflows
+- Rapid related-work generation
 
 ---
 
 ## 🔬 Example Workflow
 
-1. Add DOIs (one per line) to `input/dois.txt` or paste into the Streamlit input.  
-2. Run the app and start processing.  
-3. Let the pipeline fetch metadata, pull abstracts and methods, download PDFs (if available), extract sectioned text, and run LLM analysis.  
-4. Download the generated `literature_review.xlsx` from the UI.
+1. Paste DOIs into the Streamlit UI (or input/dois.txt)
+2. Start processing
+3. The system fetches metadata, abstracts, PDFs (if available), and aggregates sectioned text
+4. The LLM synthesizes an academic literature survey
+5. Download the generated Excel file
 
 ---
 

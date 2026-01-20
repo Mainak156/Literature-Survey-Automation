@@ -2,11 +2,19 @@ from groq import Groq
 import os
 import json
 import re
-from dotenv import load_dotenv
+api_key = None
 
-load_dotenv()
+try:
+    import streamlit as st
+    api_key = st.secrets.get("GROQ_API_KEY")
+except Exception:
+    pass
 
-api_key = os.getenv("GROQ_API_KEY")
+if not api_key:
+    from dotenv import load_dotenv
+    load_dotenv()
+    api_key = os.getenv("GROQ_API_KEY")
+
 if not api_key:
     raise ValueError("❌ GROQ_API_KEY not found")
 
