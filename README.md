@@ -72,6 +72,7 @@ Literature-Survey-Automation/
 ├── utils/
 │   └── excel_writer.py
 ├── .gitignore
+├── CHANGELOG.md
 └── README.md
 ```
 
